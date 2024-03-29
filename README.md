@@ -11,9 +11,11 @@ da dieses als veraltet gekennzeichnet ist und nicht mehr verwendet werden sollte
 
 ## Eigenschaften
 
+
 ---
 
 ### Anzeigemodi
+
 
 ---
 
@@ -24,7 +26,11 @@ da dieses als veraltet gekennzeichnet ist und nicht mehr verwendet werden sollte
 
 ## geplante Änderungen und Funktionen
 
+Zur Zeit keine.
+
 ---
 
 ## History
+
+
 
