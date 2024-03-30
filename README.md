@@ -2,6 +2,10 @@
 
 Steuerelement zum Darstellen einer Linie, eines Rechtecks oder einer Ellipse.
 
+>Hinweis:
+>
+>Dieses Steuerelement befindet sich noch in der Entwicklungsphase.
+
 ---
 
 ## Einführung
