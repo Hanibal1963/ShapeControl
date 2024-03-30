@@ -152,31 +152,59 @@ Public Class Shape
 
 
                 '-----------------------------------------------------------------------------------
-                'TODO: Die Werte für die Linienbreite müssen an die Zeichefläche angepasst werden da
+
+                'ERLEDIGT: Die Werte für die Linienbreite müssen an die Zeichefläche angepasst werden da
                 'nur die Hälfte der Linien im Bereich des Controls liegt.
+
                 'TODO: Die werte für den Füllbereich müssen ebenfalls angpasst werden da
                 'der zu füllende Bereich innerhalb der Rahmenlinie liegen soll.
+
                 '------------------------------------------------------------------------------------
 
 
 
             Case ShapeModes.Rectangle
                 'einfaches Rechteck zeichnen
-                g.DrawRectangle(New Pen(_LineColor, _LineWidth), Me.ClientRectangle)
+                g.DrawRectangle(
+                    New Pen(_LineColor, _LineWidth),
+                    _LineWidth / 2,
+                    _LineWidth / 2,
+                    Me.Width - _LineWidth,
+                    Me.Height - _LineWidth)
 
             Case ShapeModes.FilledRectangle
-                'gefülltes Rechteck zeichnen
-                g.DrawRectangle(New Pen(_LineColor, _LineWidth), Me.ClientRectangle)
+                'einfaches Rechteck zeichnen
+                g.DrawRectangle(
+                    New Pen(_LineColor, _LineWidth),
+                    _LineWidth / 2,
+                    _LineWidth / 2,
+                    Me.Width - _LineWidth,
+                    Me.Height - _LineWidth)
+
+                'Rechteck ausfüllen
                 g.FillRectangle(New SolidBrush(_FillColor), Me.ClientRectangle)
 
             Case ShapeModes.Elypse
                 'einfache Ellipse zeichnen
-                g.DrawEllipse(New Pen(_LineColor, _LineWidth), Me.ClientRectangle)
+                g.DrawEllipse(
+                    New Pen(_LineColor, _LineWidth),
+                    _LineWidth / 2,
+                    _LineWidth / 2,
+                    Me.Width - _LineWidth,
+                    Me.Height - _LineWidth)
 
             Case ShapeModes.FilledElypse
-                'gefüllte Ellipe zeichnen
-                g.DrawEllipse(New Pen(_LineColor, _LineWidth), Me.ClientRectangle)
+                'einfache Ellipe zeichnen
+                g.DrawEllipse(
+                    New Pen(_LineColor, _LineWidth),
+                    _LineWidth / 2,
+                    _LineWidth / 2,
+                    Me.Width - _LineWidth,
+                    Me.Height - _LineWidth)
+
+                'Ellipse ausfüllen
                 g.FillEllipse(New SolidBrush(_FillColor), Me.ClientRectangle)
+
         End Select
 
     End Sub
