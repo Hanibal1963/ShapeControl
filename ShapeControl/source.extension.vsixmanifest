@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="ShapeControl.4dbcadfd-41c0-4c44-adf8-69dd7187e072" Version="1.0" Language="de-DE" Publisher="Andreas Sauer" />
+        <Identity Id="ShapeControl.4dbcadfd-41c0-4c44-adf8-69dd7187e072" Version="1.2024.3003.00" Language="de-DE" Publisher="Andreas Sauer" />
         <DisplayName>ShapeControl</DisplayName>
         <Description xml:space="preserve">Steuerelement zum Darstellen einer Linie, eines Rechtecks oder einer Ellipse.</Description>
         <MoreInfo>https://github.com/Hanibal1963/ShapeControl</MoreInfo>

@@ -4,15 +4,21 @@
 ' ****************************************************************************************************************
 '
 
-Imports System
+Imports System.ComponentModel
 Imports System.Drawing
 Imports System.Windows.Forms
 
-''' <summary></summary>
+''' <summary>Steuerelement zum Darstellen einer Linie, eines Rechtecks oder einer Ellipse.</summary>
 <ProvideToolboxControl("SchlumpfSoft Controls", False)>
+<Description("Steuerelement zum Darstellen einer Linie, eines Rechtecks oder einer Ellipse.")>
+<ToolboxItem(True)>
+<ToolboxBitmap(GetType(Shape), "Shape.bmp")>
 Public Class Shape
 
-    ''' <summary></summary>
+    ''' <summary>Legt die anzuzeigende Form fest oder gibt diese zurück.</summary>
+    <Browsable(True)>
+    <Category("Appearance")>
+    <Description("Legt die anzuzeigende Form fest oder gibt diese zurück.")>
     Public Property ShapeModus() As ShapeModes
         Get
             Return _ShapeModus
@@ -23,7 +29,10 @@ Public Class Shape
         End Set
     End Property
 
-    ''' <summary></summary>
+    ''' <summary>Legt die Breite der Linie oder Rahmenlinie fest oder gibt diese zurück.</summary>
+    <Browsable(True)>
+    <Category("Appearance")>
+    <Description("Legt die Breite der Linie oder Rahmenlinie fest oder gibt diese zurück.")>
     Public Property LineWidth() As Single
         Get
             Return _LineWidth
@@ -34,7 +43,10 @@ Public Class Shape
         End Set
     End Property
 
-    ''' <summary></summary>
+    ''' <summary>Legt die Farbe der Linie oder Rahmenlinie fest oder gibt diese zurück.</summary>
+    <Browsable(True)>
+    <Category("Appearance")>
+    <Description("Legt die Farbe der Linie oder Rahmenlinie fest oder gibt diese zurück.")>
     Public Property LineColor() As Color
         Get
             Return _LineColor
@@ -45,7 +57,10 @@ Public Class Shape
         End Set
     End Property
 
-    ''' <summary></summary>
+    ''' <summary>Legt die Füllfarbe für die Form fest oder gibt diese zurück.</summary>
+    <Browsable(True)>
+    <Category("Appearance")>
+    <Description("Legt die Füllfarbe für die Form fest oder gibt diese zurück.")>
     Public Property FillColor() As Color
         Get
             Return _FillColor
@@ -56,7 +71,10 @@ Public Class Shape
         End Set
     End Property
 
-    ''' <summary></summary>
+    ''' <summary>Legt fest ob eine diagonale Linie von links oben nach rechts unten oder umgekehrt verläuft oder gibt dieses zurück.</summary>
+    <Browsable(True)>
+    <Category("Appearance")>
+    <Description("Legt fest ob eine diagonale Linie von links oben nach rechts unten oder umgekehrt verläuft oder gibt dieses zurück.")>
     Public Property DiagonalLineModus() As DiagonalLineModes
         Get
             Return _DiagonalLineModus
@@ -77,6 +95,90 @@ Public Class Shape
             cp.ExStyle = cp.ExStyle Or &H20
             Return cp
         End Get
+    End Property
+
+    ''' <summary>Hintergrundfarbe (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property BackColor As Color
+        Get
+            Return MyBase.BackColor
+        End Get
+        Set(value As Color)
+            MyBase.BackColor = value
+        End Set
+    End Property
+
+    ''' <summary>Hintergrundbild (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property BackgroundImage As Image
+        Get
+            Return MyBase.BackgroundImage
+        End Get
+        Set(value As Image)
+            MyBase.BackgroundImage = value
+        End Set
+    End Property
+
+    ''' <summary>Leout Hintergrundbild (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property BackgroundImageLayout As ImageLayout
+        Get
+            Return MyBase.BackgroundImageLayout
+        End Get
+        Set(value As ImageLayout)
+            MyBase.BackgroundImageLayout = value
+        End Set
+    End Property
+
+    ''' <summary>Schriftart (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property Font As Font
+        Get
+            Return MyBase.Font
+        End Get
+        Set(value As Font)
+            MyBase.Font = value
+        End Set
+    End Property
+
+    ''' <summary>Vordergrundfarbe (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property ForeColor As Color
+        Get
+            Return MyBase.ForeColor
+        End Get
+        Set(value As Color)
+            MyBase.ForeColor = value
+        End Set
+    End Property
+
+    ''' <summary>Rechrs - Links Schreibweise (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property RightToLeft As RightToLeft
+        Get
+            Return MyBase.RightToLeft
+        End Get
+        Set(value As RightToLeft)
+            MyBase.RightToLeft = value
+        End Set
+    End Property
+
+    ''' <summary>Text (nicht relevant für dieses Control)</summary>
+    <Browsable(False)>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Overrides Property Text As String
+        Get
+            Return MyBase.Text
+        End Get
+        Set(value As String)
+            MyBase.Text = value
+        End Set
     End Property
 
     Public Sub New()
@@ -130,11 +232,19 @@ Public Class Shape
 
             Case ShapeModes.HorizontalLine
                 'horizontale Linie zeichnen (mittig im Rahmen des Controls)
-                g.DrawLine(New Pen(_LineColor, _LineWidth), 0, CInt(Me.Height / 2), Me.Width, CInt(Me.Height / 2))
+                g.DrawLine(New Pen(_LineColor, _LineWidth),
+                           0,
+                           CInt(Me.Height / 2),
+                           Me.Width,
+                           CInt(Me.Height / 2))
 
             Case ShapeModes.VerticalLine
                 'vertikale Linie zeichnen (mittig im Rahmen des Controls)
-                g.DrawLine(New Pen(_LineColor, _LineWidth), CInt(Me.Width / 2), 0, CInt(Me.Width / 2), Me.Height)
+                g.DrawLine(New Pen(_LineColor, _LineWidth),
+                           CInt(Me.Width / 2),
+                           0,
+                           CInt(Me.Width / 2),
+                           Me.Height)
 
             Case ShapeModes.DiagonalLine
                 'diagonale Linie zeichnen
@@ -142,26 +252,21 @@ Public Class Shape
 
                     Case DiagonalLineModes.BottomLeftToTopRight
                         'von links unten nach rechts oben
-                        g.DrawLine(New Pen(_LineColor, _LineWidth), 0, Me.Height, Me.Width, 0)
+                        g.DrawLine(New Pen(_LineColor, _LineWidth),
+                                   0,
+                                   Me.Height,
+                                   Me.Width,
+                                   0)
 
                     Case DiagonalLineModes.TopLeftToBottomRight
                         'von links oben nach rechts unten
-                        g.DrawLine(New Pen(_LineColor, _LineWidth), 0, 0, Me.Width, Me.Height)
+                        g.DrawLine(New Pen(_LineColor, _LineWidth),
+                                   0,
+                                   0,
+                                   Me.Width,
+                                   Me.Height)
 
                 End Select
-
-
-                '-----------------------------------------------------------------------------------
-
-                'ERLEDIGT: Die Werte für die Linienbreite müssen an die Zeichefläche angepasst werden da
-                'nur die Hälfte der Linien im Bereich des Controls liegt.
-
-                'TODO: Die werte für den Füllbereich müssen ebenfalls angpasst werden da
-                'der zu füllende Bereich innerhalb der Rahmenlinie liegen soll.
-
-                '------------------------------------------------------------------------------------
-
-
 
             Case ShapeModes.Rectangle
                 'einfaches Rechteck zeichnen
@@ -182,7 +287,11 @@ Public Class Shape
                     Me.Height - _LineWidth)
 
                 'Rechteck ausfüllen
-                g.FillRectangle(New SolidBrush(_FillColor), Me.ClientRectangle)
+                g.FillRectangle(New SolidBrush(_FillColor),
+                               _LineWidth,
+                               _LineWidth,
+                               Me.Width - (2 * _LineWidth),
+                               Me.Height - (2 * _LineWidth))
 
             Case ShapeModes.Elypse
                 'einfache Ellipse zeichnen
@@ -203,7 +312,11 @@ Public Class Shape
                     Me.Height - _LineWidth)
 
                 'Ellipse ausfüllen
-                g.FillEllipse(New SolidBrush(_FillColor), Me.ClientRectangle)
+                g.FillEllipse(New SolidBrush(_FillColor),
+                              _LineWidth,
+                              _LineWidth,
+                              Me.Width - (2 * _LineWidth),
+                              Me.Height - (2 * _LineWidth))
 
         End Select
 

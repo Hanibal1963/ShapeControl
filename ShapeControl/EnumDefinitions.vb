@@ -4,39 +4,39 @@
 ' ****************************************************************************************************************
 '
 
-''' <summary></summary>
+''' <summary>Legt fest welce Form gezeichnet wird</summary>
 Public Enum ShapeModes
 
-    ''' <summary></summary>
+    ''' <summary>Horizontale Linie</summary>
     HorizontalLine = 0
 
-    ''' <summary></summary>
+    ''' <summary>Vertikale Linie</summary>
     VerticalLine = 1
 
-    ''' <summary></summary>
+    ''' <summary>diagonale Linie</summary>
     DiagonalLine = 2
 
-    ''' <summary></summary>
+    ''' <summary>Rechteck</summary>
     Rectangle = 3
 
-    ''' <summary></summary>
+    ''' <summary>gefülltes Rechteck</summary>
     FilledRectangle = 4
 
-    ''' <summary></summary>
+    ''' <summary>Kreis oder Ellipse</summary>
     Elypse = 5
 
-    ''' <summary></summary>
+    ''' <summary>gefüllter Kreis oder gefüllte Ellipse</summary>
     FilledElypse = 6
 
 End Enum
 
-''' <summary></summary>
+''' <summary>legt fest wie die diagonale Linie gezeichnet wird</summary>
 Public Enum DiagonalLineModes
 
-    ''' <summary></summary>
+    ''' <summary>von links oben nach rechts unten</summary>
     TopLeftToBottomRight = 0
 
-    ''' <summary></summary>
+    ''' <summary>von links unten nach rechts oben</summary>
     BottomLeftToTopRight = 1
 
 End Enum
