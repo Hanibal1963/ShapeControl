@@ -28,7 +28,7 @@ Partial Class Form1
         Dim Label_LineWidth As System.Windows.Forms.Label
         Dim Label_LineColor As System.Windows.Forms.Label
         Dim Label_FillColor As System.Windows.Forms.Label
-        Me.Shape1 = New SchlumpfSoft.Shape()
+        Me.Shape1 = New SchlumpfSoft.ShapeControl.Shape()
         Me.ComboBox_ShapeModus = New System.Windows.Forms.ComboBox()
         Me.ComboBox_LineModus = New System.Windows.Forms.ComboBox()
         Me.NumericUpDown_LineWidth = New System.Windows.Forms.NumericUpDown()
@@ -102,13 +102,13 @@ Partial Class Form1
         '
         'Shape1
         '
-        Me.Shape1.DiagonalLineModus = SchlumpfSoft.DiagonalLineModes.TopLeftToBottomRight
+        Me.Shape1.DiagonalLineModus = SchlumpfSoft.ShapeControl.DiagonalLineModes.TopLeftToBottomRight
         Me.Shape1.FillColor = System.Drawing.Color.Gray
         Me.Shape1.LineColor = System.Drawing.Color.Black
         Me.Shape1.LineWidth = 2.0!
         Me.Shape1.Location = New System.Drawing.Point(115, 107)
         Me.Shape1.Name = "Shape1"
-        Me.Shape1.ShapeModus = SchlumpfSoft.ShapeModes.HorizontalLine
+        Me.Shape1.ShapeModus = SchlumpfSoft.ShapeControl.ShapeModes.HorizontalLine
         Me.Shape1.Size = New System.Drawing.Size(177, 169)
         Me.Shape1.TabIndex = 1
         '
@@ -182,7 +182,7 @@ Partial Class Form1
         Me.PerformLayout()
 
     End Sub
-    Private WithEvents Shape1 As SchlumpfSoft.Shape
+    Private WithEvents Shape1 As SchlumpfSoft.ShapeControl.Shape
     Private WithEvents ComboBox_ShapeModus As ComboBox
     Private WithEvents ComboBox_LineModus As ComboBox
     Private WithEvents NumericUpDown_LineWidth As NumericUpDown

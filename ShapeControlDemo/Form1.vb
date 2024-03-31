@@ -53,7 +53,7 @@ Public Class Form1
         End Select
 
         'ausgewählte Form umschalten
-        Me.Shape1.ShapeModus = CType(selindex, SchlumpfSoft.ShapeModes)
+        Me.Shape1.ShapeModus = CType(selindex, SchlumpfSoft.ShapeControl.ShapeModes)
 
     End Sub
 
@@ -62,7 +62,7 @@ Public Class Form1
 
         'Verlauf der diagonalen Linie schalten
         Dim selindex As Integer = CType(sender, ComboBox).SelectedIndex
-        Me.Shape1.DiagonalLineModus = CType(selindex, SchlumpfSoft.DiagonalLineModes)
+        Me.Shape1.DiagonalLineModus = CType(selindex, SchlumpfSoft.ShapeControl.DiagonalLineModes)
 
     End Sub
 

@@ -42,6 +42,12 @@ Zur Zeit keine.
 
 ## History
 
+### Version 1.2024.3103.0
+
+Datum: 31.03.2024 - Update Erste Releaseversion
+
+- Korrektur des Namespace
+
 ### Version 1.2024.3003.0
 
 Datum: 30.03.2024 - Erste Releaseversion
