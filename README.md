@@ -44,5 +44,5 @@ Zur Zeit keine.
 
 ### Version 1.2024.3003.0
 
-Datum: 30.03.2024 - Erste Veröffentlichung
+Datum: 30.03.2024 - Erste Releaseversion
 
